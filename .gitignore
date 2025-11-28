@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info
+.venv/
+venv/
+
+# Environment variables (CRITICAL - contains API keys)
+.env
+*.env.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# UV
+uv.lock
+
+# Node (para cuando agregues frontend)
+node_modules/
+.next/
+out/
+dist/
+*.log

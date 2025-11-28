@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables (CRITICAL - contains API keys)
+.env
+
+# Database (local development only)
+*.db
+database.db
+
+# UV lock file (optional, depends on team preference)
+# uv.lock
