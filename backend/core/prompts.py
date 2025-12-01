@@ -1,3 +1,9 @@
+"""
+Prompts para el modelo de lenguaje (LLM).
+Define las instrucciones que se envían a OpenAI para generar historias interactivas.
+"""
+
+# Prompt principal que se envía al LLM para generar una historia completa
 STORY_PROMPT = """
                 You are a creative story writer that creates engaging choose-your-own-adventure stories.
                 Generate a complete branching story with multiple paths and endings in the JSON format I'll specify.
@@ -23,6 +29,8 @@ STORY_PROMPT = """
                 Don't add any text outside of the JSON structure.
                 """
 
+# Ejemplo de la estructura JSON esperada (solo para referencia, no se usa directamente)
+# El parser de Pydantic genera las instrucciones de formato automáticamente
 json_structure = """
         {
             "title": "Story Title",

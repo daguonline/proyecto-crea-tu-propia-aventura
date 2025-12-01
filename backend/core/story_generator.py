@@ -19,19 +19,19 @@ class StoryGenerator:
     def _get_llm(cls):
         """
         Configura y devuelve una instancia del modelo de lenguaje (LLM).
-        Usa 'gpt-4-turbo' para la generación.
+        Usa 'gpt-4o' para la generación.
         """
         return ChatOpenAI(model="gpt-4o", api_key=settings.OPENAI_API_KEY)
     
     @classmethod
-    def generate_story(cls, db: Session, session_id: str, theme: str = "fatasy") -> Story:
+    def generate_story(cls, db: Session, session_id: str, theme: str = "fantasy") -> Story:
         """
         Genera una nueva historia basada en un tema dado.
         
         Args:
             db (Session): Sesión de base de datos.
             session_id (str): Identificador de la sesión del usuario.
-            theme (str): Tema de la historia (por defecto 'fatasy').
+            theme (str): Tema de la historia (por defecto 'fantasy').
             
         Returns:
             Story: El objeto de historia creado y guardado en la base de datos.

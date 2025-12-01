@@ -263,3 +263,43 @@ Se decide mantener la implementación actual con OpenAI (`gpt-4o`) y el modelo d
 **Plan Futuro:**
 Para versiones posteriores, se evaluará la migración a modelos gratuitos (como Google Gemini o Groq) o cambios en la arquitectura para reducir costos operativos antes de un despliegue masivo.
 
+## 21. Configuración de Control de Versiones
+
+**Acciones:**
+- Se eliminó el repositorio Git de `backend/` para evitar repositorios anidados.
+- Se inicializó un repositorio Git en la raíz del proyecto (`Proyecto Juego interactivo/`).
+- Se creó `.gitignore` en la raíz con reglas para proteger archivos sensibles (`.env`, `*.db`) y archivos generados.
+- Se configuró la identidad Git del usuario.
+- Se realizó el commit inicial del proyecto completo (backend + bitácora).
+
+**Estructura del repositorio:**
+```
+Proyecto Juego interactivo/
+├── .git/
+├── .gitignore
+├── BITACORA_DESARROLLO.md
+└── backend/
+    ├── core/
+    ├── db/
+    ├── models/
+    ├── routers/
+    ├── schemas/
+    └── ...
+```
+
+## 22. Documentación Adicional y Correcciones Menores
+
+**Fecha:** 2025-11-29
+
+**Archivos documentados:**
+- **`core/models.py`**: Se agregaron comentarios explicando los modelos Pydantic para validar respuestas del LLM (`StoryOptionLLM`, `StoryNodeLLM`, `StoryLLMResponse`)
+- **`models/job.py`**: Se documentó completamente el modelo `StoryJob` que rastrea el estado de trabajos asíncronos de generación
+
+**Correcciones realizadas:**
+- **`core/story_generator.py`**: 
+  - Actualizado comentario del método `_get_llm` de 'gpt-4-turbo' a 'gpt-4o'
+  - Corregido typo en parámetro por defecto: `theme: str = "fatasy"` → `theme: str = "fantasy"`
+
+**Estado:**
+Toda la documentación del backend está completa. Cada archivo tiene comentarios explicativos sobre módulos importados, propósito de clases y funciones.
+
