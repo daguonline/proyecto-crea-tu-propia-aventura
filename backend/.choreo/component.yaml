@@ -9,3 +9,7 @@ endpoints:
     networkVisibility: 
       - Project
       - Public
+    schemaFilePath: null
+    auth:
+      oauth2:
+        enabled: false
