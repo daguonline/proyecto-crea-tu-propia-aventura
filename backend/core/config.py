@@ -25,8 +25,11 @@ class Settings(BaseSettings):
     # Orígenes permitidos para CORS (separados por comas en .env)
     ALLOWED_ORIGINS: str = ''
 
-    # Clave de API de OpenAI para generar historias (requerido en .env)
-    OPENAI_API_KEY: str 
+    # Clave de API de OpenAI (opcional si se usa Gemini)
+    OPENAI_API_KEY: str = ""
+
+    # Clave de API de Google Gemini (requerido si se usa Gemini)
+    GEMINI_API_KEY: str = "" 
 
     @field_validator('ALLOWED_ORIGINS')
     def parse_allowed_origins(cls, v: str) -> List[str]:

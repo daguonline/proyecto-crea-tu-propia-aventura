@@ -303,3 +303,76 @@ Proyecto Juego interactivo/
 **Estado:**
 Toda la documentación del backend está completa. Cada archivo tiene comentarios explicativos sobre módulos importados, propósito de clases y funciones.
 
+
+## 23. Desarrollo y Corrección de Componentes Frontend
+
+**Fecha:** 2025-12-01
+
+**Estado:**
+Se han desarrollado y corregido los componentes principales del frontend para la interacción del usuario.
+
+**Componentes Trabajados:**
+
+1.  **ThemeImput.jsx**:
+    *   **Función**: Permite al usuario ingresar el tema de la historia.
+    *   **Correcciones**: Se arregló la lógica de validación (estaba invertida), se corrigieron errores de sintaxis en el placeholder y se agregó el texto faltante al botón de envío.
+
+2.  **StoryLoader.jsx**:
+    *   **Función**: Gestiona la carga de la historia desde la API.
+    *   **Correcciones**: Se solucionaron múltiples errores de sintaxis (importaciones incorrectas, comillas mal cerradas, typos en JSX).
+    *   **Nota**: Actualmente tiene un placeholder para el componente StoryGame. La integración final se realizará cuando todos los archivos estén listos.
+
+3.  **StoryGame.jsx**:
+    *   **Función**: Motor visual del juego. Muestra nodos, opciones y finales.
+    *   **Correcciones**: Se realizó una revisión exhaustiva de sintaxis (uso de .length, operadores ternarios, className, map). Se implementó la lógica para los botones de 'Jugar de nuevo' y 'Crear nueva historia'.
+
+4.  **LoadingStatus.jsx**:
+    *   **Función**: Componente visual para feedback de carga.
+    *   **Estado**: Revisado y funcional.
+
+**Documentación:**
+Se han agregado comentarios explicativos al inicio de cada uno de estos archivos para facilitar su mantenimiento y comprensión.
+
+## 24. Implementación de Diseño Responsivo
+
+**Fecha:** 2025-12-02
+
+**Estado:**
+Se han añadido estilos CSS para asegurar que la aplicación sea utilizable en dispositivos móviles.
+
+**Cambios Realizados:**
+
+1.  **App.css**:
+    *   Se añadió una media query para pantallas menores a 600px.
+    *   Se ajustó el padding del contenedor principal.
+    *   Los botones de acción ahora se apilan verticalmente en móviles para facilitar el toque.
+    *   Se ajustaron los tamaños de fuente para mejorar la legibilidad en pantallas pequeñas.
+
+2.  **index.css**:
+    *   Se definió un tamaño de fuente base de 16px para asegurar legibilidad estándar en móviles.
+
+
+## 25. Migración a Google Gemini API
+
+**Fecha:** 2025-12-03
+
+**Estado:**
+Se ha completado la migración del backend para utilizar la API de Google Gemini en lugar de OpenAI, reduciendo costos operativos.
+
+**Cambios Realizados:**
+
+1.  **Dependencias**:
+    *   Se agregó langchain-google-genai a pyproject.toml.
+
+2.  **Configuración**:
+    *   Se actualizó config.py y .env para incluir GEMINI_API_KEY.
+    *   Se hizo opcional OPENAI_API_KEY.
+
+3.  **Lógica de Generación (story_generator.py)**:
+    *   Se reemplazó ChatOpenAI por ChatGoogleGenerativeAI.
+    *   Se configuró el modelo gemini-2.0-flash (tras verificar disponibilidad de modelos).
+
+**Verificación:**
+*   Se creó un script de prueba 	est_gemini.ps1.
+*   Se confirmó la generación exitosa de una historia (ID: 7) utilizando el nuevo modelo.
+

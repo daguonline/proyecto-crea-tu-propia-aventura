@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session  # Importa Session para manejar la conexión y transacciones con la base de datos
 from core.config import settings  # Importa la configuración de la aplicación
 
-from langchain_openai import ChatOpenAI  # Importa la clase para interactuar con modelos de chat de OpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI  # Importa la clase para interactuar con modelos de chat de Google
 from langchain_core.prompts import PromptTemplate, ChatPromptTemplate  # Importa utilidades para crear plantillas de prompts
 from langchain_core.output_parsers import PydanticOutputParser  # Importa el parser para convertir la salida del LLM a objetos Pydantic
 
@@ -19,9 +19,13 @@ class StoryGenerator:
     def _get_llm(cls):
         """
         Configura y devuelve una instancia del modelo de lenguaje (LLM).
-        Usa 'gpt-4o' para la generación.
+        Usa 'gemini-2.0-flash' para la generación (rápido y económico).
         """
-        return ChatOpenAI(model="gpt-4o", api_key=settings.OPENAI_API_KEY)
+        return ChatGoogleGenerativeAI(
+            model="gemini-2.0-flash", 
+            google_api_key=settings.GEMINI_API_KEY,
+            temperature=0.7
+        )
     
     @classmethod
     def generate_story(cls, db: Session, session_id: str, theme: str = "fantasy") -> Story:
