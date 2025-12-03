@@ -19,8 +19,8 @@ class Settings(BaseSettings):
     # Modo debug (activa logs adicionales en desarrollo)
     DEBUG: bool = False
 
-    # URL de conexión a la base de datos (requerido en .env)
-    DATABASE_URL: str
+    # URL de conexión a la base de datos
+    DATABASE_URL: str = "sqlite:////tmp/database.db"
 
     # Orígenes permitidos para CORS (separados por comas en .env)
     ALLOWED_ORIGINS: str = ''
