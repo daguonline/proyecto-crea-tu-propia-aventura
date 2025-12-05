@@ -376,3 +376,23 @@ Se ha completado la migración del backend para utilizar la API de Google Gemini
 *   Se creó un script de prueba 	est_gemini.ps1.
 *   Se confirmó la generación exitosa de una historia (ID: 7) utilizando el nuevo modelo.
 
+
+## 26. Preparación para Despliegue en Render
+
+**Fecha:** 2025-12-05
+
+**Objetivo:**
+Preparar la aplicación para su despliegue en la plataforma Render.com.
+
+**Cambios Realizados:**
+1.  **Archivos de Configuración de Render**:
+    *   `backend/build.sh`: Script de bash para manejar la instalación de dependencias y migraciones durante el build en Render.
+    *   `backend/Procfile`: Archivo que define el comando de inicio del servidor (`web: uvicorn main:app --host 0.0.0.0 --port $PORT`).
+
+2.  **Seguridad**:
+    *   Se identificó que una clave de API (Gemini) había sido expuesta.
+    *   **Acción**: Se generó una nueva clave y se actualizó el archivo `.env`.
+
+3.  **Verificación Pre-Despliegue**:
+    *   Se realizaron pruebas locales para asegurar que la aplicación funciona correctamente con la nueva configuración.
+
